@@ -61,4 +61,5 @@ public addSalle(salle: FormData) {
   return this.http.post<Salle>(this.apiUrl, salle);
 }
 
+
 }

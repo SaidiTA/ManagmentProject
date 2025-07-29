@@ -1,6 +1,6 @@
 
 
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,8 +25,8 @@ import { ReservationFormComponent } from './components/reservation/reservation-f
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ViewSalleComponent } from './components/salle/view-salle/view-salle.component';
-
-
+import { ConfigurationHoraireComponent } from './components/configuration-horaire/configuration-horaire.component';
+import { AdminConfigCalendarComponent } from './components/admin-config-calendar/admin-config-calendar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,9 @@ import { ViewSalleComponent } from './components/salle/view-salle/view-salle.com
     NavbarComponent,
     ReservationFormComponent,
     CalendarComponent,
-    ViewSalleComponent
+    ViewSalleComponent,
+    ConfigurationHoraireComponent,
+    AdminConfigCalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { ViewSalleComponent } from './components/salle/view-salle/view-salle.com
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

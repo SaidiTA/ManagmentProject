@@ -13,6 +13,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ReservationFormComponent } from './components/reservation/reservation-form/reservation-form.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewSalleComponent } from './components/salle/view-salle/view-salle.component';
+import { ConfigurationHoraireComponent } from './components/configuration-horaire/configuration-horaire.component';
+import { AdminConfigCalendarComponent } from './components/admin-config-calendar/admin-config-calendar.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
   {
     path: 'calender',
     component: CalendarComponent
+  },
+   {
+    path: 'config',
+    component: AdminConfigCalendarComponent
+  },
+   {
+    path: 'config1',
+    component: ConfigurationHoraireComponent
   },
   // Optionnel : redirection wildcard vers login si route inconnue
   { path: '**', redirectTo: '/login' }
