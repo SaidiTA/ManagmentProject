@@ -15,9 +15,8 @@ public class ConfigurationHoraireService {
     public List<ConfigurationHoraire> getAllConfigurations() {
         return repository.findAll();
     }
-
-
     public ConfigurationHoraire updateConfiguration(ConfigurationHoraire config) {
         return repository.save(config);
     }
+
 }

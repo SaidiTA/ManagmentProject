@@ -17,7 +17,7 @@ export class AdminConfigCalendarComponent {
 joursFermes: Set<number> = new Set(); 
 calendarOptions!: CalendarOptions;
   constructor(private configHoraireService: ConfigurationHoraireService) {}
-
+ 
   ngOnInit(): void {
     this.loadHoraires();
   }

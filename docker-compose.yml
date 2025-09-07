@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./BackEnd
+    container_name: backend-service
+    ports:
+      - "8087:8087"
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/skytek?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root  # Mettre le mot de passe de la base de données MySQL
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+
+  frontend:
+    build: ./FrontEnd
+    container_name: frontend-service
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:8.0  # Utilisation de l'image officielle de MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Le mot de passe pour l'utilisateur root de MySQL
+      MYSQL_DATABASE: skytek  # Créer une base de données healthswift si elle n'existe pas
+    ports:
+      - "3306:3306"  # Exposer le port MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist data between container restarts
+    networks:
+      - microservices-network
+
+volumes:
+  mysql_data:
+
+networks:
+  microservices-network:
+    driver: bridge
